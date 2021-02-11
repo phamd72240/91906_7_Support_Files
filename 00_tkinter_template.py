@@ -4,7 +4,7 @@ import random
 
 class Foo:
     def __init__(self, parent):
-        print("hello world")
+        print("hello JOHNNATHAN")
 
 
 # main routine
