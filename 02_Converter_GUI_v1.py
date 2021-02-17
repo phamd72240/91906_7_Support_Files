@@ -55,7 +55,7 @@ class Converter:
 
         # Answer label (row 4)
         self.converted_label = Label(self.converter_frame, font="Arial 14 bold",
-                                     fg="yellow", bg=background_color,
+                                     fg="red", bg=background_color,
                                      pady=10, text="Conversion goes here")
         self.converted_label.grid(row=4)
 
@@ -70,6 +70,31 @@ class Converter:
         self.help_button = Button(self.hist_help_frame, font="Arial 12 bold",
                                        text="help", width=5)
         self.help_button.grid(row=0, column=1)
+
+    def temp_convert(self, to):
+        print(to)
+
+        # Retrieve amount entered into Entry field
+        to_convert = self.to_convert_entry.get()
+
+        try:
+            to_convert = float(to_convert)
+            print("yay")
+
+        except ValueError:
+            print("oops")
+
+        # Check amount is a valid number
+
+        # Convert to F
+
+        # Convert to C
+
+        # Round!!
+
+        # Display answer
+
+        # Add Answer to list for History
 
 # main routine
 if __name__ == "__main__":
