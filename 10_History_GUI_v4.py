@@ -9,6 +9,18 @@ class Converter:
         # Formatting variables
         background_color = "light green"
 
+        # In actual program this is blank and is populated with user calculations
+        self.all_calc_list = ['0 degrees C is -17.8 degrees F',
+                              '0 degrees C is 32 degrees F',
+                              '40 degrees C is 104 degrees F',
+                              '40 degrees C is 4.4 degrees F',
+                              '12 degrees C is 53.6 degrees F',
+                              '24 degrees C is 75.2 degrees F',
+                              '100 degrees C is 37.8 degrees F',]
+
+        # Initialise list to hold calculation history
+        self.all_calculations = []
+
         # Converter Frame
         self.converter_frame = Frame(bg=background_color,
                                      pady=10)
@@ -17,8 +29,7 @@ class Converter:
         # Temperature Converter Heading (row 0)
         self.temp_heading_label = Label(self.converter_frame,
                                         text="Temperature Converter",
-                                        font="Arial 19 bold",
-                                        bg=background_color,
+                                        font="Arial 19 bold", bg=background_color,
                                         padx=10, pady=10)
         self.temp_heading_label.grid(row=0)
 
@@ -68,7 +79,7 @@ class Converter:
         self.calc_hist_button.grid(row=0, column=0)
 
         self.help_button = Button(self.hist_help_frame, font="Arial 12 bold",
-                                       text="help", width=5)
+                                  text="help", width=5)
         self.help_button.grid(row=0, column=1)
 
     def temp_convert(self, low):
@@ -85,14 +96,14 @@ class Converter:
 
             # Check and convert to fahrenheit
             if low == -273 and to_convert >= low:
-                fahrenheit = (to_convert * 9/5) + 32
+                fahrenheit = (to_convert * 9 / 5) + 32
                 to_convert = self.round_it(to_convert)
                 fahrenheit = self.round_it(fahrenheit)
                 answer = "{} degrees C is {} degrees F".format(to_convert, fahrenheit)
 
             # Check and convert to centigrade
             elif low == -459 and to_convert >= low:
-                celsius = (to_convert - 32) * 5/9
+                celsius = (to_convert - 32) * 5 / 9
                 to_convert = self.round_it(to_convert)
                 celsius = self.round_it(celsius)
                 answer = "{} degrees C is {} degrees F".format(to_convert, celsius)
@@ -109,7 +120,11 @@ class Converter:
             else:
                 self.converted_label.configure(text=answer, fg="red")
                 self.to_convert_entry.configure(bg=error)
-            # Add Answer to list for History
+
+                # Add Answer to list for History
+                if answer != "Too cold":
+                    self.all_calculations.append(answer)
+                    print(self.all_calculations)
 
         except ValueError:
             self.converted_label.configure(text="Enter a number!!", fg="red")
@@ -129,3 +144,6 @@ if __name__ == "__main__":
     root.title("Temperature Converter")
     something = Converter()
     root.mainloop()
+
+
+
