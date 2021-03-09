@@ -1,0 +1,10 @@
+
+
+ -273 degrees C is -459.4 degrees F
+ -459 degrees F is -272.8 degrees C
+ 0 degrees F is -17.8 degrees C
+ 0 degrees C is 32 degrees F
+ 100 degrees F is 37.8 degrees C
+ 100 degrees C is 212 degrees F
+ 25 degrees F is -3.9 degrees C
+ 25 degrees C is 77 degrees F

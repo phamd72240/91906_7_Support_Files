@@ -115,17 +115,13 @@ class converter:
                 self.to_convert_entry.configure(bg="white")
 
             else:
-                self.converted_label.configure(text=answer, fg="800000")
+                self.converted_label.configure(text=answer, fg="#800000")
                 self.to_convert_entry.configure(bg=error)
 
             # Add Answer to list for History.
             if has_errors != "yes":
                 self.all_calc_list.append(answer)
                 self.calc_hist_button.config(state=NORMAL)
-
-
-
-
 
 
 
@@ -187,7 +183,7 @@ class History:
         history_string = ""
         if len(calc_history) > 7:
             for item in range(0, 7):
-                history_string += calc_history[lens(calc_history) - item - 1] + "\n"
+                history_string += calc_history[len(calc_history) - item - 1] + "\n"
 
 
         else:
@@ -271,7 +267,7 @@ class Export:
         print(calc_history)
 
         # This color is Lightish Yellow
-        background = "#EBFF6B"
+        background = "#FF0000"
 
         # disable export button
         partner.export_button.config(state=DISABLED)

@@ -1,0 +1,2 @@
+ 123 degrees C is 253.4 degrees F
+ 123 degrees F is 50.6 degrees C
